@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome to Tyson Stark Games</title>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Identity Services script -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -26,15 +30,36 @@
       </section>
    </header>
 
+   <!-- Google Sign-In button -->
+   <div id="g_id_onload"
+        data-client_id="YOUR_CLIENT_ID_HERE"
+        data-callback="handleCredentialResponse"
+        data-auto_prompt="false">
+   </div>
+
+   <div class="g_id_signin" data-type="standard"></div>
+
     <main>
         <!-- Embed a sample HTML5 game -->
-        <iframe src="game1/index.html" width="800" height="600" title="Our Game"></iframe>
+        <iframe src="game1.html" width="800" height="600" title="Our Game"></iframe>
     </main>
-<h1>
-</h1>
+
     <footer>
         <p>&copy; 2025 Tyson Stark Games. All rights reserved.</p>
     </footer>
+
+    <script>
+      function handleCredentialResponse(response) {
+        console.log("Encoded JWT ID token: " + response.credential);
+
+        const base64Url = response.credential.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const decodedPayload = JSON.parse(window.atob(base64));
+        console.log("Decoded JWT payload:", decodedPayload);
+
+        alert("Hello " + decodedPayload.name + "! You have signed in successfully.");
+      }
+    </script>
 </body>
 
 </html>
