@@ -7,7 +7,25 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
+  <header>
+      <section class="nav">
+         <div class="logo">
+            <h2 class="logo">Tyson Stark Games</h2>
+         </div>
+         <input id="menu-toggle" type="checkbox" />
+         <label class="menu-button-container" for="menu-toggle">
+            <div class="menu-button"></div>
+         </label>
+         <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+         </ul>
+      </section>
+   </header>
+
+  <main><div class="container">
     <h1>Contact Us</h1>
     <form action="https://formspree.io/f/your-form-id" method="POST">
       <label for="name">Name:</label>
@@ -20,7 +38,7 @@
       <textarea id="message" name="message" rows="5" required></textarea>
 
       <button type="submit">Send</button>
-    </form>
+    </form></main>
   </div>
 </body>
 </html>

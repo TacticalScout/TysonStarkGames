@@ -1,162 +1,260 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* ====== Original Styles for Home Page ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Ensure full height layout */
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    background-color: #f8f7ff; /* Light lavender background */
-    color: #444; /* Dark gray for text */
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
 }
 
+
+/* Header fixed at the top */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Push down main content below fixed header */
+main {
+    flex: 1;
+    padding-top: 70px; /* Adjust to match your header height */
+}
+
+/* Footer sticks to bottom when content is short */
+footer {
+    background-color: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 15px 30px;
+}
+
+.logo h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+  color: #00f7ff;
+}
+
+/* Hamburger Menu */
+.menu-button-container {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #fff;
+  height: 3px;
+  width: 25px;
+  border-radius: 2px;
+  position: relative;
+}
+
+.menu-button::before,
+.menu-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-button::before {
+  top: -8px;
+}
+
+.menu-button::after {
+  top: 8px;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-button-container {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #menu-toggle:checked + .menu-button-container + .menu {
+    display: flex;
+  }
+
+  .menu li {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  border: none;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ====== Extended Styles for Other Pages ====== */
+
 h1, h2, h3 {
-    color: #6a5acd; /* Darker lavender for headings */
+  color: #6a5acd;
 }
 
 a {
-    color: #7986cb; /* A softer blue-purple for links */
-    text-decoration: none;
+  color: #7986cb;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
-    color: #5c6bc0; /* Darker shade on hover */
+  text-decoration: underline;
+  color: #5c6bc0;
 }
 
-header, footer, nav, main {
-    padding: 10px;
-    text-align: center;
-}
-
-/* Consistent Header Style */
-header {
-    background-color: #9fa8da; /* Medium lavender */
-    color: white;
-    padding: 15px; /* Reduced padding for a smaller header */
-    font-size: 0.9em; /* Reduced font size for a smaller header */
-}
-
-header h1 {
-    margin-bottom: 5px; /* Reduced margin for the heading in the header */
-    font-size: 1.5em; /* Smaller heading size */
-}
-
-header p {
-    font-size: 1em; /* Smaller paragraph size */
-}
-
-nav {
-    background-color: #e8eaf6; /* Very light lavender */
-    padding: 10px;
-}
-
-nav a {
-    margin: 0 10px;
-}
-
-main {
-    padding: 20px;
-}
-
-footer {
-    background-color: #303f9f; /* Dark indigo for the footer */
-    color: white;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Privacy Policy Page Styles */
-.privacy-policy-container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff; /* White container */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Lighter shadow */
-}
-
-.privacy-policy-container ul {
-    padding-left: 20px;
-}
-
-.privacy-policy-container li {
-    margin-bottom: 5px;
-}
-
-.privacy-policy-container p {
-    margin-bottom: 15px;
-}
-
-/* Contact Page Styles */
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Lighter shadow */
-    max-width: 500px;
-    margin: 20px auto;
-}
-
-label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #555;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-}
-
-button {
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: #7986cb; /* Softer blue-purple for the button */
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #5c6bc0; /* Darker shade on hover */
-}
-
-/* About Page Styles */
+/* About Page */
 .about-container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff; /* White container */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  color: #333;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .about-container h1 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .about-container h2 {
-    margin-top: 25px;
-    margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
-.about-container p {
-    margin-bottom: 15px;
+.about-container p,
+.about-container li {
+  margin-bottom: 10px;
 }
 
 .about-container ul {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
-.about-container li {
-    margin-bottom: 5px;
+/* Contact Page */
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  max-width: 500px;
+  margin: 20px auto;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #555;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #7986cb;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5c6bc0;
+}
+
+/* Privacy Policy Page */
+.privacy-policy-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  color: #333;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.privacy-policy-container p,
+.privacy-policy-container li {
+  margin-bottom: 10px;
+}
+
+.privacy-policy-container ul {
+  padding-left: 20px;
 }
