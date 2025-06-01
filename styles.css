@@ -27,10 +27,21 @@ header, footer, nav, main {
     text-align: center;
 }
 
+/* Consistent Header Style */
 header {
     background-color: #9fa8da; /* Medium lavender */
     color: white;
-    padding: 20px;
+    padding: 15px; /* Reduced padding for a smaller header */
+    font-size: 0.9em; /* Reduced font size for a smaller header */
+}
+
+header h1 {
+    margin-bottom: 5px; /* Reduced margin for the heading in the header */
+    font-size: 1.5em; /* Smaller heading size */
+}
+
+header p {
+    font-size: 1em; /* Smaller paragraph size */
 }
 
 nav {
